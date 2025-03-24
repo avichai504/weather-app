@@ -1,0 +1,15 @@
+<p>forecast.page works!</p>
+<!-- src/app/pages/forecast.page/forecast.page.html -->
+
+<h2>5-Day Forecast for {{ city }}</h2>
+
+<div *ngIf="loading">Loading...</div>
+
+<div *ngIf="forecast.length && !loading" class="forecast-grid">
+  <div *ngFor="let day of forecast" class="forecast-item">
+    <p><strong>{{ day.date | date: 'EEE, MMM d' }}</strong></p>
+    <img [src]="day.icon" alt="Icon" />
+    <p>{{ day.description }}</p>
+    <p>{{ day.temperature }} °C</p>
+  </div>
+</div>
