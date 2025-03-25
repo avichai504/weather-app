@@ -1,0 +1,17 @@
+.forecast-card {
+  background: #f2f7ff;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  width: 150px;
+}
+
+.forecast-card img {
+  width: 60px;
+  margin: 0.5rem 0;
+}
+
+.forecast-card p {
+  margin: 0.25rem 0;
+}

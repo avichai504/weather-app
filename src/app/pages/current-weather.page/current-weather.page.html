@@ -1,4 +1,4 @@
-<h2>🌤️ Current Weather</h2>
+<h2>Current Weather</h2>
 
 <div class="controls">
   <label for="city-select"><i class="fas fa-city"></i> Choose a city:</label>
@@ -11,7 +11,8 @@
   </select>
 
   <button class="toggle-btn" (click)="toggleUnit()">
-    <i class="fas fa-exchange-alt"></i> Switch to °{{ unit === 'C' ? 'F' : 'C' }}
+    <i class="fas fa-exchange-alt"></i> Switch to °{{ unit === 'C' ? 'F' : 'C'
+    }}
   </button>
 </div>
 
@@ -19,29 +20,10 @@
   <i class="fas fa-spinner fa-spin"></i> Loading...
 </div>
 
-<div *ngIf="rawData && !loading" class="weather-card">
-  <h3>
-    <i class="fas fa-map-marker-alt"></i> {{ rawData.name }}, {{ rawData.sys.country }}
-  </h3>
-  <img
-    [src]="'https://openweathermap.org/img/wn/' + rawData.weather[0].icon + '@2x.png'"
-    alt="Weather icon"
-  />
-  <p><strong>{{ rawData.weather[0].description | titlecase }}</strong></p>
-
-  <p><i class="fas fa-thermometer-half"></i> Temperature: {{ rawData.main.temp | temperature:unit }}°{{ unit }}</p>
-  <p><i class="fas fa-temperature-low"></i> Feels like: {{ rawData.main.feels_like | temperature:unit }}°{{ unit }}</p>
-  <p>
-    <i class="fas fa-arrow-down"></i> Min: {{ rawData.main.temp_min | temperature:unit }}°{{ unit }},
-    <i class="fas fa-arrow-up"></i> Max: {{ rawData.main.temp_max | temperature:unit }}°{{ unit }}
-  </p>
-  <p><i class="fas fa-tint"></i> Humidity: {{ rawData.main.humidity }}%</p>
-  <p><i class="fas fa-tachometer-alt"></i> Pressure: {{ rawData.main.pressure }} hPa</p>
-  <p><i class="fas fa-eye"></i> Visibility: {{ rawData.visibility / 1000 }} km</p>
-  <p><i class="fas fa-wind"></i> Wind: {{ rawData.wind.speed }} m/s at {{ rawData.wind.deg }}°</p>
-  <p><i class="fas fa-cloud"></i> Cloudiness: {{ rawData.clouds.all }}%</p>
-  <p><i class="fas fa-sun"></i> Sunrise: {{ rawData.sys.sunrise * 1000 | date:'shortTime' }}</p>
-  <p><i class="fas fa-moon"></i> Sunset: {{ rawData.sys.sunset * 1000 | date:'shortTime' }}</p>
-</div>
+<app-weather
+  *ngIf="rawData && !loading"
+  [rawData]="rawData"
+  [unit]="unit"
+></app-weather>
 
 <app-history></app-history>

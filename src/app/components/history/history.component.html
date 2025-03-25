@@ -1,13 +1,31 @@
-<h3>Search History</h3>
-<div class="history" *ngIf="history.length; else noHistory">
-  <div class="entry" *ngFor="let item of history; let i = index">
-    <strong>{{ item.city }}</strong>
-    {{ item.temperature | temperature: 'C' }},
-    {{ item.description }}
-    <button class="delete-btn" (click)="deleteEntry(i)">Delete</button>
-  </div>
-</div>
+<div class="weather-history">
+  <h3>Search History</h3>
 
-<ng-template #noHistory>
-  <p>No history yet.</p>
-</ng-template>
+  <div *ngIf="history.length; else noHistory" class="history-grid">
+    <div *ngFor="let entry of history" class="weather-card">
+      <p class="city">{{ entry.city }}</p>
+      <p class="timestamp">{{ entry.date | date: 'short' }}</p>
+
+      <img [src]="entry.result.icon" alt="icon" />
+
+      <p><strong>{{ entry.result.description | titlecase }}</strong></p>
+      <p>🌡 Temperature: {{ entry.result.temperature | number:'1.0-1' }}°C</p>
+      <p>🤒 Feels like: {{ entry.result.feels_like | number:'1.0-1' }}°C</p>
+      <p>⬇ Min: {{ entry.result.temp_min | number:'1.0-1' }}°C,
+         ⬆ Max: {{ entry.result.temp_max | number:'1.0-1' }}°C</p>
+      <p>💧 Humidity: {{ entry.result.humidity }}%</p>
+      <p>⚙️ Pressure: {{ entry.result.pressure }} hPa</p>
+      <p>👁️ Visibility: {{ entry.result.visibility / 1000 }} km</p>
+      <p>💨 Wind: {{ entry.result.wind_speed }} m/s at {{ entry.result.wind_deg }}°</p>
+      <p>☁️ Cloudiness: {{ entry.result.clouds }}%</p>
+      <p>🌞 Sunrise: {{ entry.result.sunrise * 1000 | date:'shortTime' }}</p>
+      <p>🌜 Sunset: {{ entry.result.sunset * 1000 | date:'shortTime' }}</p>
+    </div>
+  </div>
+
+  <ng-template #noHistory>
+    <p>No weather history yet.</p>
+  </ng-template>
+
+  <button class="clear-btn" (click)="clearHistory()">Clear History</button>
+</div>

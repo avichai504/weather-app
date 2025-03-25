@@ -4,11 +4,13 @@ import { WeatherService } from '../../services/weather.service';
 import { Weather } from '../../models/weather.model';
 import { TemperaturePipe } from '../../pipes/temperature.pipe';
 import { HistoryComponent } from '../../components/history/history.component';
+import { WeatherComponent } from '../../components/weather/weather.component';
 
 @Component({
   selector: 'app-current-weather-page',
   standalone: true,
-  imports: [CommonModule, TemperaturePipe, HistoryComponent],
+  imports: [CommonModule, TemperaturePipe, HistoryComponent, WeatherComponent],
+
   providers: [WeatherService],
   templateUrl: './current-weather.page.html',
   styleUrls: ['./current-weather.page.css'],
@@ -26,6 +28,11 @@ export class CurrentWeatherPage {
     'Rome',
     'Madrid',
     'Los Angeles',
+    'Moscow',
+    'Beijing',
+    'Mumbai',
+    'Cairo',
+    'Rio de Janeiro',
   ];
   unit: 'C' | 'F' = 'C';
   weather: Weather | null = null;
@@ -53,9 +60,13 @@ export class CurrentWeatherPage {
     this.weatherService.getCurrentWeather(newCity).subscribe((data) => {
       this.weather = data;
       this.loading = false;
-      const history = JSON.parse(localStorage.getItem('history') || '[]');
-      history.push(data);
-      localStorage.setItem('history', JSON.stringify(history));
+      const stored = JSON.parse(localStorage.getItem('history') || '[]');
+      const entry = {
+        city: data.city,
+        date: new Date(),
+        result: data,
+      };
+      localStorage.setItem('history', JSON.stringify([...stored, entry]));
     });
   }
 

@@ -1,0 +1,23 @@
+<div class="forecast-history">
+  <h3>Forecast History</h3>
+
+  <div *ngIf="history.length; else noHistory">
+    <div *ngFor="let entry of history" class="forecast-group">
+      <h4>{{ entry.city }} – {{ entry.date | date: 'short' }}</h4>
+
+      <div class="forecast-group-row">
+        <div *ngFor="let day of entry.results" class="forecast-mini-card">
+          <p class="date">{{ day.date | date: 'EEE' }}</p>
+          <img [src]="day.icon" alt="icon" />
+          <p class="temp">{{ day.temperature }}°C</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noHistory>
+    <p>No forecast history yet.</p>
+  </ng-template>
+
+  <button class="clear-btn" (click)="clearHistory()">Clear History</button>
+</div>

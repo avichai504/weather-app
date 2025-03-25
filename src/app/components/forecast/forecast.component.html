@@ -1,0 +1,6 @@
+<div class="forecast-card">
+  <p><strong>{{ day.date | date: 'EEE, MMM d' }}</strong></p>
+  <img [src]="day.icon" alt="Weather icon" />
+  <p>{{ day.description }}</p>
+  <p>{{ day.temperature }} °C</p>
+</div>

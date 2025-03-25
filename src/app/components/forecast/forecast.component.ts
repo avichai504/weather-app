@@ -1,0 +1,13 @@
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-forecast',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './forecast.Component.html',
+  styleUrls: ['./forecast.component.css'],
+})
+export class ForecastComponent {
+  @Input() day: any;
+}

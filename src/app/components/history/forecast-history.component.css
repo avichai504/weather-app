@@ -1,0 +1,51 @@
+.forecast-history {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.forecast-group {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+}
+
+.forecast-group-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.forecast-mini-card {
+  background: #eef4ff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.5rem;
+  width: 80px;
+  font-size: 0.85rem;
+}
+
+.forecast-mini-card img {
+  width: 40px;
+  height: 40px;
+  margin: 0.25rem 0;
+}
+
+.forecast-mini-card .temp {
+  font-weight: bold;
+}
+
+.clear-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #d9534f;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  background-color: #c9302c;
+}

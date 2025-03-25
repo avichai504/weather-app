@@ -1,33 +1,55 @@
-.history {
-  margin-top: 1rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background: #f9f9f9;
+.weather-history {
+  margin-top: 2rem;
+  text-align: center;
 }
 
-.entry {
-  padding: 0.25rem 0;
-  border-bottom: 1px solid #ddd;
+.history-grid {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
-.entry:last-child {
-  border-bottom: none;
+.weather-history .weather-card {
+  background: #f6faff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 0.75rem;
+  width: 180px;
+  font-size: 0.8rem;
+  text-align: center;
+  opacity: 0.9;
+  transition: transform 0.2s ease;
 }
 
-.delete-btn {
-  margin-left: 1rem;
-  background: #e74c3c;
-  color: white;
+.weather-history .weather-card img {
+  width: 50px;
+  margin: 0.5rem 0;
+}
+
+.weather-history .weather-card .city {
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.weather-history .weather-card .timestamp {
+  font-size: 0.7rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.clear-btn {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #d9534f;
   border: none;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+  color: white;
+  border-radius: 6px;
   cursor: pointer;
 }
 
-.delete-btn:hover {
-  background: #c0392b;
+.clear-btn:hover {
+  background-color: #c9302c;
 }

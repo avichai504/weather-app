@@ -1,1 +1,23 @@
-<p>weather works!</p>
+<div *ngIf="rawData" class="weather-card">
+  <h3>
+    📍 {{ rawData.name }}, {{ rawData.sys.country }}
+  </h3>
+  <img
+    [src]="'https://openweathermap.org/img/wn/' + rawData.weather[0].icon + '@2x.png'"
+    alt="Weather icon"
+  />
+  <p><strong>{{ rawData.weather[0].description | titlecase }}</strong></p>
+
+  <p>🌡 Temperature: {{ rawData.main.temp | temperature:unit }}°{{ unit }}</p>
+  <p>🤒 Feels like: {{ rawData.main.feels_like | temperature:unit }}°{{ unit }}</p>
+  <p>⬇ Min: {{ rawData.main.temp_min | temperature:unit }}°{{ unit }},
+     ⬆ Max: {{ rawData.main.temp_max | temperature:unit }}°{{ unit }}</p>
+
+  <p>💧 Humidity: {{ rawData.main.humidity }}%</p>
+  <p>⚙️ Pressure: {{ rawData.main.pressure }} hPa</p>
+  <p>👁️ Visibility: {{ rawData.visibility / 1000 }} km</p>
+  <p>💨 Wind: {{ rawData.wind.speed }} m/s at {{ rawData.wind.deg }}°</p>
+  <p>☁️ Cloudiness: {{ rawData.clouds.all }}%</p>
+  <p>🌞 Sunrise: {{ rawData.sys.sunrise * 1000 | date:'shortTime' }}</p>
+  <p>🌜 Sunset: {{ rawData.sys.sunset * 1000 | date:'shortTime' }}</p>
+</div>

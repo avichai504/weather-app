@@ -1,12 +1,17 @@
-<h2>5-Day Forecast for {{ city }}</h2>
+<h2>5-Day Forecast</h2>
+
+<div class="forecast-controls">
+  <label for="city-select">Choose a city:</label>
+  <select id="city-select" (change)="onCitySelect($any($event.target).value)">
+    <option value="" selected disabled>-- Select a city --</option>
+    <option *ngFor="let c of cities" [value]="c">{{ c }}</option>
+  </select>
+</div>
 
 <div *ngIf="loading">Loading...</div>
 
 <div *ngIf="forecast.length && !loading" class="forecast-grid">
-  <div *ngFor="let day of forecast" class="forecast-item">
-    <p><strong>{{ day.date | date: 'EEE, MMM d' }}</strong></p>
-    <img [src]="day.icon" alt="Icon" />
-    <p>{{ day.description }}</p>
-    <p>{{ day.temperature }} °C</p>
-  </div>
+  <app-forecast *ngFor="let day of forecast" [day]="day" />
 </div>
+
+<app-forecast-history></app-forecast-history>
