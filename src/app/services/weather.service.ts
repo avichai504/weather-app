@@ -1,22 +1,22 @@
-// src/app/services/weather.service.ts
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Weather } from '../models/weather.model';
 
 @Injectable({ providedIn: 'root' })
 export class WeatherService {
   private apiKey = '5ee4d0bad339e81e1c2518e00300c598';
   private apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
+  public rawApiData: any;
 
   constructor(private http: HttpClient) {}
 
   getCurrentWeather(city: string): Observable<Weather> {
     const url = `${this.apiUrl}?q=${city}&units=metric&appid=${this.apiKey}`;
     return this.http.get<any>(url).pipe(
-      // transform API response into our Weather model
+      // tap is used to store the raw data in the rawApiData property
+      tap((data) => (this.rawApiData = data)),
       map((data) => ({
         city: data.name,
         temperature: data.main.temp,

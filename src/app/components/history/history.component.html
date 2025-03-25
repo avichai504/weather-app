@@ -1,0 +1,13 @@
+<h3>Search History</h3>
+<div class="history" *ngIf="history.length; else noHistory">
+  <div class="entry" *ngFor="let item of history; let i = index">
+    <strong>{{ item.city }}</strong>
+    {{ item.temperature | temperature: 'C' }},
+    {{ item.description }}
+    <button class="delete-btn" (click)="deleteEntry(i)">Delete</button>
+  </div>
+</div>
+
+<ng-template #noHistory>
+  <p>No history yet.</p>
+</ng-template>
