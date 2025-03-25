@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-forecast',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './forecast.Component.html',
+  templateUrl: './forecast.component.html',
   styleUrls: ['./forecast.component.css'],
 })
 export class ForecastComponent {
