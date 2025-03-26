@@ -1,21 +1,54 @@
+# Angular Weather App - Avichai Gal-Or
 
-# Angular Weather App
+מיני פרויקט לסחבק
 
-This is a simple weather application built with Angular. It uses the OpenWeatherMap API to display the current weather and 5-day forecast for selected cities.
+The app allows users to view the current weather and a 5-day forecast for any selected city using the OpenWeatherMap API.
 
-## 🚀 Features
+## 🔗 Live Demo
 
-- View current weather for selected cities
-- Toggle temperature units between °C and °F
-- View a 5-day forecast (one reading per day)
-- Angular standalone components & pipes
-- Organized project structure
+This project is deployed and live at:
+**[https://weather-app-1zgz-git-master-avichais-projects.vercel.app/current](https://weather-app-1zgz-git-master-avichais-projects.vercel.app/current)**
 
-## 🔧 Setup Instructions
+## How to Run
 
-1. Clone the repo:
+1. Clone the project:
 
    ```bash
-   git clone <your-repo-url>
-   cd weather-app
+   git clone https://github.com/avichai504/weather-app
    ```
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+
+   ```bash
+   ng serve
+   ```
+4. Open your browser at:
+
+   ```
+   http://localhost:4200
+   ```
+
+## ✅ What I Did
+
+This project implements **Option 2: “Weather” App** from the Angular Quiz instructions.
+
+### ✅ Core Features
+
+- Display **current weather** for a selected city
+- View a **5-day forecast**
+- Search history tracking for both **current** and **forecast**
+- Display of **full weather details** including temperature, wind, humidity, pressure, and more
+
+### ⚙️ Angular Concepts Demonstrated
+
+- ✅ Components (standalone)
+- ✅ Services (WeatherService, HistoryService)
+- ✅ Routing (current & forecast views)
+- ✅ Two-way binding, event handling, conditional rendering
+- ✅ Proper folder structure, code readability, and reuse
+- ✅ TypeScript interfaces and observable patterns
+- ✅ Unit-test-ready logic
