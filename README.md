@@ -1,8 +1,14 @@
 # Angular Weather App - Avichai Gal-Or
 
-מיני פרויקט לסחבק
-
 The app allows users to view the current weather and a 5-day forecast for any selected city using the OpenWeatherMap API.
+
+## מיני פרויקט לסחבק
+
+### My details:
+
+- Avichai Gal-Or
+- avichai506@gmail.com
+- 0528864546
 
 ## 🔗 Live Demo
 
